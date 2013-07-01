@@ -37,7 +37,6 @@ import org.springframework.data.jpa.repository.sample.UserRepository;
 import org.springframework.data.repository.core.RepositoryMetadata;
 import org.springframework.data.repository.core.support.DefaultRepositoryMetadata;
 import org.springframework.data.repository.query.QueryMethod;
-import org.springframework.data.repository.query.QueryMethod.Type;
 
 /**
  * Unit test for {@link QueryMethod}.
@@ -71,15 +70,6 @@ public class JpaQueryMethodUnitTests {
 
 		sortableTwice = InvalidRepository.class.getMethod(METHOD_NAME, String.class, Sort.class, Sort.class);
 		modifyingMethod = UserRepository.class.getMethod("renameAllUsersTo", String.class);
-	}
-
-	@Test
-	public void testname() {
-
-		JpaQueryMethod method = new JpaQueryMethod(repositoryMethod, metadata, extractor);
-
-		assertEquals("User.findByLastname", method.getNamedQueryName());
-		assertThat(method.getType(), is(Type.COLLECTION));
 	}
 
 	@Test(expected = IllegalArgumentException.class)

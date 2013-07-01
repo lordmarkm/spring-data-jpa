@@ -66,17 +66,6 @@ public class JpaQueryMethod extends QueryMethod {
 	}
 
 	/**
-	 * Returns whether the finder is a modifying one.
-	 * 
-	 * @return
-	 */
-	@Override
-	protected boolean isModifyingQuery() {
-
-		return null != method.getAnnotation(Modifying.class);
-	}
-
-	/**
 	 * Returns all {@link QueryHint}s annotated at this class. Note, that {@link QueryHints}
 	 * 
 	 * @return
